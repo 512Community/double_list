@@ -1,13 +1,13 @@
 CC = gcc
 
 OBJ = main.o
-LIB = 
-INCLUDE = 
+LIB =
+INCLUDE =
 CFLAGS = -Werror -g
 
 target = test
 
-all: $(OBJ) 
+all: $(OBJ)
 	$(CC) $^ -o $(target) $(LIB)
 
 %.o: %.c

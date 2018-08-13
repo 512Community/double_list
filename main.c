@@ -8,14 +8,13 @@ struct student {
 	int data;
 	char name[50];
 
-	struct list_head node; 
+	struct list_head node;
 };
 
 struct list_head head;
 
 void print(void)
 {
-
 	struct student *stu;
 	list_for_each_entry(stu, &head, node) {
 		printf("data:%d name:%s\n", stu->data, stu->name);
@@ -30,6 +29,8 @@ void delete(void)
 	list_for_each_entry(stu, &head, node) {
 		if (stu->data == n) {
 			list_del(&stu->node);
+			free(stu);
+			stu = NULL;
 			return;
 		}
 	}
@@ -40,7 +41,7 @@ void add(void)
 	struct student *stu;
 
 	stu = malloc(sizeof(*stu));
-	
+
 	scanf("%d %s", &stu->data, stu->name);
 	list_add_tail(&stu->node, &head);
 }
