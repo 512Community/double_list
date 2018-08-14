@@ -24,14 +24,14 @@ void print(void)
 void delete(void)
 {
 	struct student *stu;
+	struct student *tmp;
 	int n;
 	scanf("%d",&n);
-	list_for_each_entry(stu, &head, node) {
+	list_for_each_entry_safe(stu, tmp, &head, node) {
 		if (stu->data == n) {
 			list_del(&stu->node);
 			free(stu);
 			stu = NULL;
-			return;
 		}
 	}
 
