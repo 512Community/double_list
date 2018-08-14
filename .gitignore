@@ -35,6 +35,8 @@ modules.builtin
 *.gcno
 *.tgz
 
+test
+
 #
 # Top-level generic files
 #
